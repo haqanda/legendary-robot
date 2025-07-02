@@ -1,0 +1,350 @@
+@font-face {
+  font-family: 'HeaderFont';
+  src: url('fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BodyFont';
+  src: url('fonts/Anuphan-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SelectFont';
+  src: url('fonts/Baloo2-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('images/aboutUsBG.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+
+.about-container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.hero-bg {
+  margin-top: 156px;
+  margin-left: 1px;
+}
+
+.hero-content {
+  position: absolute;
+  top: 202px;
+  left: 56px;
+  width: 100%;
+  max-width: 9000px; /* You can increase this if needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-content h1 {
+  font-family: 'HeaderFont', serif;
+  font-size: 128px;
+  font-weight: 400;
+  margin: 0 0 20px;
+  color: white;
+}
+
+.hero-content p {
+    display: flex;
+  flex-wrap: nowrap;
+    top: 423px;
+    left: 63px;
+    font-family: 'BodyFont', sans-serif;
+  font-size: 26.06px;
+  max-width: 900px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.mission-vision-values {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.card {
+  height:531px;
+  width: 460px;
+  flex: 1;
+  padding: 0px 0px;
+  border-radius: 0px;
+  backdrop-filter: blur(1px);
+  transition: transform 0.3s ease;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, var(--card-opacity, 0.2)), /* white with opacity */
+    rgba(0, 51, 255, var(--card-opacity, 0.2))      /* blue with opacity */
+  );
+}
+
+.card .icon {
+    margin-top:112px;
+  width: 117px;
+  height: 121px;
+}
+
+.card h3 {
+    font-family: 'HeaderFont', serif;
+    font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.card p {
+    font-family: 'BodyFont', serif;
+    font-weight: 400;
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.board-section {
+  padding: 0px 0px;
+  text-align: center;
+  background-size: cover;
+}
+
+.board-section h2 {
+    margin-top: -25px;
+  font-family: 'HeaderFont', serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+#year-selector {
+  font-family: 'SelectFont', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #444;
+}
+
+/* Chrome, Edge, Safari */
+#year-selector option {
+  font-family: 'SelectFont', sans-serif;
+  color: black; /* Option dropdowns are OS-styled, so this might vary */
+}
+
+/* Firefox fallback */
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.board-section select {
+    width:284px;
+    height:44px;
+    border-radius: 12px;
+  padding: 8px 16px;
+  margin-bottom: 40px;
+}
+
+.board-members {
+  display: flex;
+  flex-wrap: nowrap;           /* ❌ disables wrapping */
+  gap: 5px;                   /* or whatever you like */
+  justify-content: center;     /* center the whole row */
+  overflow-x: auto;            /* optional: scroll if they overflow */
+  padding: 60px 20px;
+}
+
+
+.board-member {
+  position: relative;
+  width: 154px;
+  height: 366px;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.board-member:nth-child(odd) {
+  transform: translateY(-60px);
+}
+
+.board-member:nth-child(even) {
+  transform: translateY(60px);
+}
+
+.board-member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.4s ease;
+  border-radius: 75px;
+}
+
+.board-member:hover img {
+  filter: brightness(60%);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.info {
+  position: absolute;
+  right: -95px;
+  bottom: 140px;
+  transform: rotate(-90deg) translateX(40px);
+  transform-origin: bottom;
+  white-space: nowrap;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.board-member:hover .info {
+  opacity: 1;
+  transform: rotate(-90deg) translateX(-5);
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.role {
+  font-size: 24px;
+  margin: 4px 0 10px;
+}
+
+.socials {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 2;
+  overflow: visible;
+}
+
+
+.board-member:hover .socials {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.socials img {
+  width: 30px;
+  height:30px;
+  filter: invert(1);
+  transition: transform 0.2s;
+  object-fit: contain;
+  transform: scale(1);
+  overflow: visible;
+}
+
+.socials img:hover {
+  transform: scale(1.1);
+  overflow: visible;       /* not hidden */
+  padding-bottom: 0px; 
+}
+
+
+:root {
+  --faculty-opacity: 0.1;
+}
+
+.faculty-section {
+  background-size: cover;
+  padding: 80px 60px;
+  color: white;
+}
+
+.faculty-heading {
+    margin-top: -25px;
+    font-family: 'HeaderFont';
+  text-align: center;
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+
+/* Shared gradient box */
+.faculty-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 51, 255, var(--faculty-opacity)),
+    rgba(255, 255, 255, var(--faculty-opacity)),
+    rgba(0, 51, 255, var(--faculty-opacity))
+  );
+  backdrop-filter: blur(2px); /* optional glass effect */
+  height: 519px;
+  width: 1250px;
+  border-radius: 50px;
+}
+
+/* Inside layout */
+.faculty-container {
+    width: 100%;
+  max-width: 100%;
+  display: flex;
+  margin-left: 99px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.faculty-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.faculty-text h3 {
+    font-family: 'HeaderFont';
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.faculty-text p {
+  font-family: 'BodyFont';
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #ddd;
+  max-width: 600px;
+}
+
+.faculty-img {
+  height: 519px;
+  border-radius: 50px;
+  width: 500px;          /* or use aspect-ratio instead */
+  object-fit: cover;     /* optional rounded corners */
+  display: block;
+}
